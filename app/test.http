@@ -1,0 +1,3 @@
+###
+GET http://localhost:8000/api/v1/secrets/encrypt/R09eodll
+Authorization: Bearer 1a735eeb-a947-48a5-b75d-72b0029aadd1
