@@ -1,6 +1,8 @@
 import uvicorn
 from fastapi import FastAPI
 
+import crypto
+
 app = FastAPI()
 
 
@@ -10,7 +12,8 @@ async def root():
 
 
 @app.get("/encrypted/{plain_text}")
-async def encrypted_string(plain_text: str): ...
+async def encrypted_text(plain_text: str):
+    return {"encrypted_text": crypto.encrypt_string(plain_text)}
 
 
 @app.get("/secret/{secret_id}")

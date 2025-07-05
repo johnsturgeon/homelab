@@ -2,7 +2,6 @@
 
 import os
 from dataclasses import dataclass
-from dotenv import load_dotenv
 
 
 # pylint: disable=too-few-public-methods
@@ -17,7 +16,6 @@ class Config:
     @classmethod
     def get_config(cls):
         """Factory method for returning the correct config"""
-        load_dotenv()
         config = cls(
             FERNET_KEY=os.getenv("FERNET_KEY"),
         )
