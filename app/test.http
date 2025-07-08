@@ -1,3 +1,12 @@
 ###
 GET http://localhost:8000/api/v1/secrets/encrypt/R09eodll
 Authorization: Bearer 1a735eeb-a947-48a5-b75d-72b0029aadd1
+
+###
+GET http://localhost:8000/api/v1/app_updates/refresh_updates
+Authorization: Bearer 3de508c4-4bdb-4a35-9292-ef3b19dfc548
+
+###
+GET http://localhost:8000/api/v1/ansible/new_host/netbird.lan
+Authorization: Bearer 3de508c4-4bdb-4a35-9292-ef3b19dfc548
+
