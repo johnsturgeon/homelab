@@ -5,3 +5,4 @@ sqlmodel~=0.0.24
 onepassword-sdk~=0.3.1
 SQLAlchemy~=2.0.41
 fabric~=3.2.2
+tidalapi~=0.8.3

@@ -17,15 +17,20 @@ class Config:
     ONEPASSWORD_SERVICE_TOKEN: str = os.getenv("ONEPASSWORD_SERVICE_TOKEN")
     ANSIBLE_PUBLIC_KEY: str = None
     ROOT_PASSWORD: str = None
+    TIDAL_ACCESS_TOKEN: str = None
+    TIDAL_REFRESH_TOKEN: str = None
 
     async def load_secrets(self):
         """Loads the secrets from 1password"""
-        self.ANSIBLE_PUBLIC_KEY = await get_secret(
-            self.ONEPASSWORD_SERVICE_TOKEN, "ANSIBLE_PUBLIC_KEY"
-        )
-        self.ROOT_PASSWORD = await get_secret(
-            self.ONEPASSWORD_SERVICE_TOKEN, "ROOT_PASSWORD"
-        )
+        secret_keys = [
+            "ANSIBLE_PUBLIC_KEY",
+            "ROOT_PASSWORD",
+            "TIDAL_ACCESS_TOKEN",
+            "TIDAL_REFRESH_TOKEN",
+        ]
+
+        for key in secret_keys:
+            setattr(self, key, await get_secret(self.ONEPASSWORD_SERVICE_TOKEN, key))
 
 
 global_config = Config()
